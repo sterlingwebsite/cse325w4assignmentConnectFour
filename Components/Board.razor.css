@@ -142,6 +142,11 @@ span.container {
     animation-name: drop6
 }
 
+button {
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
 @keyframes drop1 {
 
     100%,

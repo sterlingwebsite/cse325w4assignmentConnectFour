@@ -22,7 +22,9 @@
 </nav>
 
 <article>
-    @winnerMessage <button style="@ResetStyle" @onclick="ResetGame">Reset the game</button>
+    @winnerMessage
+    <button style="@ResetStyle" @onclick="ResetGame">Reset the game</button>
+    <button @onclick="UndoMove" disabled="@(moves.Count == 0)">Undo</button>
     <br />
     <span class="alert-danger">@errorMessage</span>
     <span class="alert-info">@CurrentTurn</span>
@@ -46,9 +48,15 @@
     private string[] pieces = new string[42];
     private string winnerMessage = string.Empty;
     private string errorMessage = string.Empty;
+    private List<byte> moves = new();
 
     private string CurrentTurn => (winnerMessage == string.Empty) ? $"Player {State.PlayerTurn}'s Turn" : "";
     private string ResetStyle => (winnerMessage == string.Empty) ? "display: none;" : "";
+
+    protected override void OnInitialized()
+    {
+        State.ResetBoard();
+    }
 
     private void PlayPiece(byte col)
     {
@@ -59,12 +67,43 @@
             var turn = State.CurrentTurn;
             var landingRow = State.PlayPiece(col);
             pieces[turn] = $"player{player} col{col} drop{landingRow}";
+            moves.Add(col);
         }
         catch (ArgumentException ex)
         {
             errorMessage = ex.Message;
         }
 
+        UpdateWinner();
+    }
+
+    private void UndoMove()
+    {
+        if (moves.Count == 0) return;
+
+        moves.RemoveAt(moves.Count - 1);
+        ReplayMoves();
+    }
+
+    private void ReplayMoves()
+    {
+        State.ResetBoard();
+        pieces = new string[42];
+        errorMessage = string.Empty;
+
+        foreach (var col in moves)
+        {
+            var player = State.PlayerTurn;
+            var turn = State.CurrentTurn;
+            var landingRow = State.PlayPiece(col);
+            pieces[turn] = $"player{player} col{col} drop{landingRow}";
+        }
+
+        UpdateWinner();
+    }
+
+    private void UpdateWinner()
+    {
         winnerMessage = State.CheckForWin() switch
         {
             GameState.WinState.Player1_Wins => "Player 1 Wins!",
@@ -74,16 +113,12 @@
         };
     }
 
-    protected override void OnInitialized()
-    {
-        State.ResetBoard();
-    }
-
     void ResetGame()
     {
         State.ResetBoard();
         winnerMessage = string.Empty;
         errorMessage = string.Empty;
         pieces = new string[42];
+        moves.Clear();
     }
 }

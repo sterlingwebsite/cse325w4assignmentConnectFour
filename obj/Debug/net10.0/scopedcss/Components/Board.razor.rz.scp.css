@@ -142,6 +142,11 @@ span.container[b-2hsj6j6moh] {
     animation-name: drop6-b-2hsj6j6moh
 }
 
+button[b-2hsj6j6moh] {
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
 @keyframes drop1-b-2hsj6j6moh {
 
     100%,

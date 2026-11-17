@@ -82,5 +82,6 @@ c:\Users\smste\OneDrive\school\byupathway2026block6\cse325\week4assignment\Conne
 c:\Users\smste\OneDrive\school\byupathway2026block6\cse325\week4assignment\ConnectFour\obj\Debug\net10.0\ConnectFour.genruntimeconfig.cache
 c:\Users\smste\OneDrive\school\byupathway2026block6\cse325\week4assignment\ConnectFour\obj\Debug\net10.0\ref\ConnectFour.dll
 c:\Users\smste\OneDrive\school\byupathway2026block6\cse325\week4assignment\ConnectFour\obj\Debug\net10.0\scopedcss\Components\Board.razor.rz.scp.css
-c:\Users\smste\OneDrive\school\byupathway2026block6\cse325\week4assignment\ConnectFour\obj\Debug\net10.0\compressed\8t7ubqbmk6-{0}-nh29qo2mfv-nh29qo2mfv.gz
-c:\Users\smste\OneDrive\school\byupathway2026block6\cse325\week4assignment\ConnectFour\obj\Debug\net10.0\compressed\qps0edvuu1-{0}-nh29qo2mfv-nh29qo2mfv.gz
+c:\Users\smste\OneDrive\school\byupathway2026block6\cse325\week4assignment\ConnectFour\obj\Debug\net10.0\ConnectFour.sourcelink.json
+c:\Users\smste\OneDrive\school\byupathway2026block6\cse325\week4assignment\ConnectFour\obj\Debug\net10.0\compressed\8t7ubqbmk6-{0}-i0ie4kv6ke-i0ie4kv6ke.gz
+c:\Users\smste\OneDrive\school\byupathway2026block6\cse325\week4assignment\ConnectFour\obj\Debug\net10.0\compressed\qps0edvuu1-{0}-i0ie4kv6ke-i0ie4kv6ke.gz
